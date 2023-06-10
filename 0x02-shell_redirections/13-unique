@@ -1,2 +1,2 @@
 #!/bin/bash
-tr -s '[:space:]' '\n' <list_of_words |sort -u
+tr -s '[:space:]' '\n' <list |sort -u
