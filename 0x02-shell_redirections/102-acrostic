@@ -1,2 +1,3 @@
 #!/bin/bash
-cut -c1 |tr '\n' ' '
+cut -c 1 'list' |tr '\n' ' '
+
