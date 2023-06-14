@@ -1,2 +1,2 @@
 #!/bin/bash
-\ls -1 |nl -w1 |awk 'NR%2==1' |cut -f2 -d$'\t'
+ \ls -1 |nl -w1 |grep -E '^[0-9]*[13579]\s' |cut -f2 -d$'\t'
