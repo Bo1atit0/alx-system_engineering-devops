@@ -6,18 +6,18 @@
 # Displays Y U no love me?! when receiving a SIGINT signal
 # Deletes the file /var/run/myscript.pid and terminates itself when receiving a SIGQUIT or SIGTERM signal
 
+echo $$ >> /var/run/myscript.pid
 # sigterm function
 handle_sigterm()
 {
 echo "I hate the kill command"
-rm /var/run/myscript.pid
+rm -rf  /var/run/myscript.pid
 exit 0
 }
-trap "handle_sigterm" SIGTERM
-trap 'echo "Y U no love me?!"' SIGINT
-trap "rm /var/run/myscript.pid" SIGQUIT
-echo $$ >> /var/run/myscript.pid
+trap 'handle_sigterm' SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm -rf /var/run/myscript.pid" SIGQUIT
 while true;do
-    echo "Infinity and beyond"
+    echo "To infinity and beyond"
     sleep 2
 done
