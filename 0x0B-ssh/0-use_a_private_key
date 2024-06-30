@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
-# Connect to the server 437438-web-01 using the private key ~/.ssh/school with user ubuntu
+# Bash script that connects to server using private key
 
 ssh -i ~/.ssh/school ubuntu@54.167.179.128
