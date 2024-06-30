@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# SSH configuration file
+
+Host titoserver
+    HostName 54.167.179.128
+    User ubuntu
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
