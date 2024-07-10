@@ -2,12 +2,12 @@
 
 file_line { 'private key':
   ensure => 'present',
-  path => '/root/.ssh/config',
+  path => '/etc/ssh/ssh_config',
   line => 'IdentityFile ~/.ssh/school',
 }
 
 file_line { 'turn off authentification file':
   ensure => 'present',
-  path => '/root/.ssh/config',
+  path => '/etc/ssh/ssh_config',
   line => 'PasswordAuthentication no',
 }
