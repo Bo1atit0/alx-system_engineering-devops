@@ -11,6 +11,6 @@ Host titoserver
     User ubuntu
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
-| EOF
+EOF
 }
 
