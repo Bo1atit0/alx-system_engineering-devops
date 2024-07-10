@@ -1,16 +1,13 @@
 # configure client SSH configuration file using puppet
 
-file { '/root/.ssh/config':
-  ensure  => file,
-  owner   => 'root',
-  group   => 'root',
-  mode    => '0600',
-  content => @("EOF")
-Host titoserver
-    HostName 54.167.179.128
-    User ubuntu
-    IdentityFile ~/.ssh/school
-    PasswordAuthentication no
-EOF
+file_line { 'private key':
+  ensure => 'present',
+  path => '/root/.ssh/config',
+  line => 'IdentityFile ~/.ssh/school',
 }
 
+file_line { 'turn off authentification file':
+  ensure => 'present',
+  path => '/root/.ssh/config',
+  line => 'PasswordAuthentication no',
+}
