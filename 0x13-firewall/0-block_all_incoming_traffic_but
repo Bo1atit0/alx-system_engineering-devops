@@ -7,6 +7,9 @@ sudo apt update -y
 # Install ufw
 sudo apt install ufw
 
+# Enable ufw
+sudo ufw enable
+
 # Set default policies
 set ufw default deny incoming
 set ufw default allow outgoing
@@ -20,5 +23,3 @@ sudo ufw allow 443
 # Allow HTTP (port 80)
 sudo ufw allow 80
 
-# Enable ufw
-sudo ufw enable
