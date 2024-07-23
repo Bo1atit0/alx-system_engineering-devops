@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# script that configures container to run the nginx server as nginx user
+
+# store paths in variables
+NGINX_CONF="/etc/nginx/nginx.conf"
+DEFAULT="/etc/nginx/sites-available/default"
+
+# nginx must be running as nginx user
+sed -i 's/user *./user nginx/' $NGINX_CONF
+
+# nginx must be listening on all active IPs on port 8080
+sed -i 's/80/8080/' $DEFAULT
+
+# restart nginx
+service nginx restart
