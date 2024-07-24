@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Create a MySQL user named holberton_user on both web-01 and web-02
+
+# MAKE SURE YOU'RE LOGGED IN TO YOUR WEB SERVER BEFORE YOU RUN THIS SCRIPT
+
+# Login to mysql
+mysql -u root -p
+
+# create user
+CREATE USER 'holberton_user'@'localhost' IDENTIFIES BY 'projectcorrection280hbtn';
+GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+# verify user and permissions
+SHOW GRANTS FOR 'holberton_user'@'localhost';

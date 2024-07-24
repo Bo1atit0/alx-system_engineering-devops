@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# create a new user for the replica server On your primary MySQL server
+
+#THIS CODES SHOULD BE RUN IN YOUR PRIMARY SERVER(web-01)
+
+# access your MYSQL
+mysql -uroot -p
+
+# Create user
+CREATE USER 'replica_user'@'%' IDENTIFIED BY 'password';
+GRANT REPLICATION SLAVE ON *.* TO 'replica_user'@'%';
+FLUSH PRIVILEGES;
+
+#Grant select privileges on mysql.user to holberton_user
+GRANT SELECT ON mysql.user TO 'holberton_user'@'localhost';
+FLUSH PRIVILEGES;
+
+SELECT * FROM mysql.user WHERE User = 'replica_user';
+

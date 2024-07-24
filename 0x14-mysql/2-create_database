@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# create a database, a table and fill it with information
+
+# 1. Create a Database
+CREATE DATABASE tyrell_corp;
+
+# 2. Create a Table
+USE tyrell_corp;
+CREATE TABLE nexus6 (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL
+);
+
+#3. Insert into Table
+INSERT INTO nexus6 (name) VALUES ("bo1atit0");
+
+# 4. Set Permissions
+GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+SELECT * FROM nexus6;
