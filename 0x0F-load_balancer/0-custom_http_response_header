@@ -12,7 +12,7 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 echo "Hello ALX" | sudo tee /var/www/html/404.html
 
 # Create Nginx configuration snippet for custom header
-new_config="server {
+new_config='server {
     listen 80 default_server;
     listen [::]:80 default_server;
 
@@ -22,10 +22,10 @@ new_config="server {
     server_name _;
 
     location / {
-        try_files \$uri \$uri/ =404;
-	add_header X-Served-By \$hostname;
+        try_files $uri $uri/ =404;
     }
 
+    add_header X-Served-By $hostname;
 
     location /redirect_me {
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
@@ -35,7 +35,7 @@ new_config="server {
     location = /custom_404.html {
         internal;
     }
-}"
+}'
 
 # Update Nginx configuration
 echo "$new_config" | sudo tee /etc/nginx/sites-available/default
