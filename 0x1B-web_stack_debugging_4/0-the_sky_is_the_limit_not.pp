@@ -16,3 +16,4 @@ service { 'nginx':
     enable  => true,
     require => Class['nginx_config'],
 }
+
